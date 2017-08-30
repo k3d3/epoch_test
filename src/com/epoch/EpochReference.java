@@ -11,15 +11,13 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 
-public class EpochReference extends PsiReferenceBase<XmlTokenImpl> {
+public class EpochReference extends PsiReferenceBase<XmlTagImpl> {
     private String myProcName;
-    private XmlTokenImpl myElement1;
     private XmlTagImpl myTarget;
 
-    public EpochReference(XmlTokenImpl element, TextRange rangeInElement, String procName, XmlTagImpl target) {
+    public EpochReference(XmlTagImpl element, TextRange rangeInElement, String procName, XmlTagImpl target) {
         super(element, rangeInElement, false);
         myProcName = procName;
-        myElement1 = element;
         myTarget = target;
     }
 

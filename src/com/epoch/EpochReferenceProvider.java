@@ -53,8 +53,9 @@ public class EpochReferenceProvider extends PsiReferenceProvider {
                                                     if ("Procedure".equals(targetTag.getName()) && procName.equals(targetTag.getAttributeValue("name"))) {
                                                         System.out.println("Found procedure");
                                                         System.out.println("proc name is " + procName);
-                                                        System.out.println("textrange is " + new TextRange(0, token.getTextLength()));
-                                                        result[0] = new EpochReference(token, new TextRange(0, token.getTextLength()), procName, targetTag);
+                                                        int offset = nameAttribute.getStartOffsetInParent()+7; // The 7 for name=" - can be done properly later
+                                                        System.out.println("textrange is " + new TextRange(offset, offset+token.getTextLength()));
+                                                        result[0] = new EpochReference(tag, new TextRange(offset, offset+token.getTextLength()), procName, targetTag);
                                                     }
                                                 }
                                             }
