@@ -1,0 +1,14 @@
+<EpochFile>
+    <Procedures>
+        <Procedure name="add_one">
+            <Variable name="visitor_count" source="website.com/get_visitor_count"/>
+            <Constant value="1"/>
+            <Operator type="plus"/>
+        </Procedure>
+    </Procedures>
+    <Main>
+        <PrintOutput>
+            <Call name="add_one"/>
+        </PrintOutput>
+    </Main>
+</EpochFile>
