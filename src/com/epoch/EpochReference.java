@@ -26,6 +26,7 @@ public class EpochReference extends PsiReferenceBase<XmlTokenImpl> {
     @Nullable
     @Override
     public PsiElement resolve() {
+        System.out.println("Returning target " + myTarget);
         return myTarget;
     }
 

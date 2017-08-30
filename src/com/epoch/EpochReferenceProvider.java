@@ -2,6 +2,7 @@ package com.epoch;
 
 import com.intellij.ide.highlighter.XmlFileType;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.util.TextRange;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.*;
 import com.intellij.psi.impl.source.xml.XmlTagImpl;
@@ -52,7 +53,8 @@ public class EpochReferenceProvider extends PsiReferenceProvider {
                                                     if ("Procedure".equals(targetTag.getName()) && procName.equals(targetTag.getAttributeValue("name"))) {
                                                         System.out.println("Found procedure");
                                                         System.out.println("proc name is " + procName);
-                                                        result[0] = new EpochReference(token, nameAttribute.getValueTextRange(), procName, targetTag);
+                                                        System.out.println("textrange is " + new TextRange(0, token.getTextLength()));
+                                                        result[0] = new EpochReference(token, new TextRange(0, token.getTextLength()), procName, targetTag);
                                                     }
                                                 }
                                             }
